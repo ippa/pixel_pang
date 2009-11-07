@@ -1,4 +1,6 @@
 class Level < GameState
+  attr_reader :floor_height
+  
   def initialize(options = {})
     super
     #self.input = { :e => Chingu::GameStates::Edit }
@@ -16,18 +18,39 @@ class Level < GameState
   def draw
     super
     fill_gradient(:from => @bg1, :to => @bg2)
-    fill_gradient(:rect => @floor, :from => @from, :to => @to)
+    fill_gradient(:rect => @floor, :from => @from, :to => @to, :zorder => 10)
   end
   
   def update
     super
     
-    Bullet.each_radius_collision(Ball) do |bullet, ball|
-      ball.hit_by(bullet)
-      bullet.destroy
+    #
+    # Later on when we have ordinary bullets ...
+    #
+    
+    #Bullet.each_radius_collision(Ball) do |bullet, ball|
+    #  ball.hit_by(bullet)
+    #  bullet.destroy
+    #end
+    
+    #
+    # Check for Player <-> Ball collisions
+    #
+    $window.player.each_radius_collision(Ball) do |player, ball|
+      player.hit_by(ball)
     end
     
+    #
+    # Iterate through all balls, collide them with lasers, walls and floors!
+    #
     Ball.all.each do |ball|
+      
+      Laser.all.each do |laser|
+        if ball.bottom > laser.y && ball.left < laser.x && ball.right > laser.x
+          ball.hit_by(laser)
+          laser.destroy
+        end
+      end
       
       if ball.bottom > ($window.height - @floor_height)
         ball.velocity_y = -7 - ball.radius * 0.15

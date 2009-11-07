@@ -22,7 +22,8 @@ class Game < Chingu::Window
     @player = Player.create(:x => 200, :y => 660, :zorder => 100)
     
     Sound["pop.wav"]          # <-- lame caching untill chingu gets "cache_media()" or simular
-    Sound["player_fire.wav"]  # <-- -""-
+    Sound["player_fire.wav"]  # -""-
+    Sound["die.wav"]          # -""-
     
     push_game_state(Level1)
   end
