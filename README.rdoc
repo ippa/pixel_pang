@@ -1,0 +1,18 @@
+= CHINGU
+A remake of the Amiga classic "PANG" by banisterfiend and ippa 
+
+URL: http://github.com/ippa/pang
+
+== Run from source
+To run from source You need:
+
+Ruby 1.8.7+ - Download @ ruby-lang.org
+Gosu        - Install with 'gem install gosu'
+Chingu      - Install with 'gem install chingu'
+
+
+== Tools Used
+www.libgosu.org for OpenGL accelerated 2D gfx
+www.freesound.org for sound
+Inkscape for GFX
+SCiTE for editing
