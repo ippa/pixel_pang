@@ -44,6 +44,7 @@ class Bullet < GameObject
     @image = Image["ball.png"]
     self.factor = 0.1
     @radius = 5
+    Sound["player_fire.wav"].play(0.2)
   end
   
   def update

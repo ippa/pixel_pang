@@ -65,10 +65,7 @@ class Pop < GameObject
   
   def initialize(options)
     super
-    @owner = options[:owner]
-    
-    @c1 = Color.new(0xFFFFFFFF)
-    @c2 = @owner.color
+    @owner = options[:owner]    
     @x = @owner.x
     @y = @owner.y
     self.factor = @owner.factor
