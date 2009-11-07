@@ -19,8 +19,10 @@ class Game < Chingu::Window
     super(1000, 700)
     self.input = { :esc => :close, :p => Chingu::GameStates::Pause }
     @factor = 1
-    @player = Player.create(:x => 200, :y => 660, :zorder => 100, :paused => true)
-
+    @player = Player.create(:x => 200, :y => 660, :zorder => 100)
+    
+    Sound["pop.wav"]   # <-- lame caching untill chingu gets "cache_media()" or simular
+    
     push_game_state(Level1)
   end
 end

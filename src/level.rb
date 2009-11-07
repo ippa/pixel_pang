@@ -22,22 +22,30 @@ class Level < GameState
   def update
     super
     
+    Bullet.each_radius_collision(Ball) do |bullet, ball|
+      ball.hit_by(bullet)
+      bullet.destroy
+    end
+    
     Ball.all.each do |ball|
       
-      if ball.y > ($window.height - @floor_height - ball.radius)
-        ball.velocity_y = -20
+      if ball.bottom > ($window.height - @floor_height)
+        ball.velocity_y = -7 - ball.radius * 0.15
       end
       
-      if ball.x - ball.radius < 0 
+      if ball.left < 0 
         ball.velocity_x = -ball.velocity_x
         ball.x = ball.radius
-      elsif ball.x + ball.radius > $window.width
+      elsif ball.right > $window.width
         ball.velocity_x = -ball.velocity_x
         ball.x = $window.width - ball.radius
       end
       
     end
     
+    game_objects.destroy_if { |game_object| game_object.outside_window? }
+    
+    $window.caption = "Pang! FPS: #{$window.fps} - Game objects: #{game_objects.size}"
   end
 end
 

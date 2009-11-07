@@ -9,11 +9,9 @@ class Player < Chingu::GameObject
                    :space => :fire
                  }
     self.rotation_center(:center_bottom)
-
-    #@anim = nil
-    #@anim = Chingu::Animation.new(:file => "media/player.png", :size => [18,29], :delay => 40).retrofy
-    #@image = @anim.first
+    
     @speed = 2.5
+    @cooling_down = false
     self.factor = $window.factor
     @image = Image["player.png"].retrofy
   end
@@ -28,10 +26,27 @@ class Player < Chingu::GameObject
     @x -= @speed  if outside_window?    
   end
   
-  def fire
+  def fire   
+    return if @cooling_down
     
+    @cooling_down = true
+    after(200) { @cooling_down = false }
+    
+    Bullet.create(:x => @x, :y => @y)
   end
+end
 
+class Bullet < GameObject
+  has_trait :collision_detection
+  
+  def initialize(options)
+    super
+    @image = Image["ball.png"]
+    self.factor = 0.1
+    @radius = 5
+  end
+  
   def update
+    @y -= 10
   end
 end
