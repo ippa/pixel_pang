@@ -3,12 +3,12 @@ class Level < GameState
   
   def initialize(options = {})
     super
-    #self.input = { :e => Chingu::GameStates::Edit }
+    
+    if defined?(Chingu::GameStates::Edit)
+      self.input = { :e => Chingu::GameStates::Edit }
+    end
     
     @bg2 = Color.new(0xFFFF0000)
-    #@bg1 = Color.new(0xFF000000)
-    
-    #@bg2 = Color.new(0xFFFFFAA5)
     @bg1 = Color.new(0xFF000000)
     
     @from = Color.new(0xFF129CA2)
@@ -17,7 +17,7 @@ class Level < GameState
     @floor_height = 40
     @floor = Rect.new(0, $window.height - @floor_height, $window.width, @floor_height)
   end
-  
+    
   def draw
     super
     #Image["hud.png"].draw(0,0,100)
@@ -97,20 +97,24 @@ end
 
 class Level1 < Level
   def setup
-    Ball.create(:x => 100, :y => 50)
-    Ball.create(:x => 300, :y => 100)
-    Ball.create(:x => 500, :y => 200)
+    load_game_objects
     
-    Brick.create(:x => 100, :y => 400, :image => "brick.bmp")
-    Brick.create(:x => 164, :y => 400, :image => "brick.bmp")
-    Brick.create(:x => 228, :y => 400, :image => "brick.bmp")
-    Brick.create(:x => 292, :y => 400, :image => "small_brick.bmp")
-
-    Brick.create(:x => 300, :y => 500, :image => "brick.bmp")
-    Brick.create(:x => 364, :y => 500, :image => "brick.bmp")
-    Brick.create(:x => 428, :y => 500, :image => "brick.bmp")
-    Brick.create(:x => 492, :y => 500, :image => "small_brick.bmp")
+    if Brick.size == 0
+      Ball.create(:x => 100, :y => 50)
+      Ball.create(:x => 300, :y => 100)
+      Ball.create(:x => 500, :y => 200)
     
+      Brick.create(:x => 36, :y => 400)
+      Brick.create(:x => 100, :y => 400)
+      Brick.create(:x => 164, :y => 400)
+      Brick.create(:x => 228, :y => 400)
+      SmallBrick.create(:x => 292, :y => 400)
+  
+      Brick.create(:x => 300, :y => 500)
+      Brick.create(:x => 364, :y => 500)
+      Brick.create(:x => 428, :y => 500)
+      SmallBrick.create(:x => 492, :y => 500)
+    end
   end
 end
 
@@ -120,10 +124,17 @@ class Brick < GameObject
   
   def initialize(options)
     super
+    @image = @image || Image["brick.bmp"].retrofy
     
     self.rotation_center(:top_left)
-    @image.retrofy
     self.factor = 2
     @bounding_box = Rect.new(@x, @y, @image.width*self.factor, @image.height*self.factor)
+  end
+end
+
+class SmallBrick < Brick
+  def initialize(options)
+    @image = Image["small_brick.bmp"]
+    super
   end
 end
