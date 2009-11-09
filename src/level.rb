@@ -45,10 +45,26 @@ class Level < GameState
       player.hit_by(ball)
     end
     
+    Laser.all.each do |laser|
+      Brick.all.each do |brick|
+        if brick.bounding_box.collide_point?(laser.x, laser.y)
+          laser.destroy
+        end
+      end
+    end
+    
     #
     # Iterate through all balls, collide them with lasers, walls and floors!
     #
     Ball.all.each do |ball|
+      
+      Brick.all.each do |brick|
+        if  brick.bounding_box.collide_point?(ball.left, ball.y) || brick.bounding_box.collide_point?(ball.right, ball.y)
+          ball.velocity_x = -ball.velocity_x
+        elsif brick.bounding_box.collide_point?(ball.x, ball.top) || brick.bounding_box.collide_point?(ball.x, ball.bottom)
+          ball.velocity_y = -ball.velocity_y
+        end
+      end
       
       Laser.all.each do |laser|
         if ball.bottom > laser.y && ball.left < laser.x && ball.right > laser.x
@@ -77,11 +93,34 @@ class Level < GameState
   end
 end
 
-
 class Level1 < Level
   def setup
     Ball.create(:x => 100, :y => 50)
     Ball.create(:x => 300, :y => 100)
     Ball.create(:x => 500, :y => 200)
+    
+    Brick.create(:x => 100, :y => 400, :image => "brick.bmp")
+    Brick.create(:x => 164, :y => 400, :image => "brick.bmp")
+    Brick.create(:x => 228, :y => 400, :image => "brick.bmp")
+    Brick.create(:x => 292, :y => 400, :image => "small_brick.bmp")
+    
+    Brick.create(:x => 300, :y => 500, :image => "brick.bmp")
+    Brick.create(:x => 364, :y => 500, :image => "brick.bmp")
+    Brick.create(:x => 428, :y => 500, :image => "small_brick.bmp")
+    
+  end
+end
+
+
+class Brick < GameObject
+  has_trait :collision_detection
+  
+  def initialize(options)
+    super
+    
+    self.rotation_center(:top_left)
+    @image.retrofy
+    self.factor = 2
+    @bounding_box = Rect.new(@x, @y, @image.width*self.factor, @image.height*self.factor)
   end
 end

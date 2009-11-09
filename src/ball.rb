@@ -69,7 +69,7 @@ class Pop < GameObject
     @x = @owner.x
     @y = @owner.y
     self.factor = @owner.factor
-    self.rotation_center(:center)   
+    self.rotation_center(:center)
    
     @image = Image["pop.png"]
     Sound["pop.wav"].play
