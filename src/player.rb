@@ -42,8 +42,7 @@ class Player < Chingu::GameObject
 end
 
 class Laser < GameObject
-  has_trait :collision_detection
-  attr_reader :head, :body
+  has_trait :collision_detection, :timer
   
   def initialize(options)
     super
@@ -52,31 +51,36 @@ class Laser < GameObject
     @image = Image["laser.png"]
     @zorder = 10
     self.rotation_center(:top_center)
-    #@head = GameObject.create(:x => @x, :y => @y, :image => "bullet_head.png", :zorder => 2, :rotation_center => :top_center)
-    #@body = GameObject.create(:x => @x, :y => @y, :image => "bullet_body.png", :zorder => 1, :rotation_center => :top_center)
+    every(100) { Star.create(:x => @x, :y => @y)}
   end
     
   def update
     @factor_seed += 0.5
     @factor_seed = 0 if @factor_seed > Math::PI * 2
     self.factor_x = 1 + Math::sin(@factor_seed)/6
-    @y -= 5
-    
-    #@body.factor = 1 + Math::sin(@factor_seed)/5
-    #@head.y -= 5
-    #@body.y -= 5
-    
+    @y -= 7 
   end
   
-  #def destroy
-  #  super
-  #  @head.destroy
-  #  @body.destroy
-  #end
+end
+
+
+class Star < GameObject
+  has_trait :velocity
   
-  #def draw
-  #  @body.draw
-  #  @head.draw
-  #end
+  def initialize(options)
+    super
+    @image = Image["pop.png"]
+    self.factor = 0.3
+    @velocity_y = 2
+    @velocity_x = 3 - rand(6)
+  end
   
+  def update
+    #
+    # Fall down rotating and fade out .. destroy when faded.
+    #
+    @angle += 5
+    self.alpha -= 10
+    destroy if self.alpha < 10
+  end
 end

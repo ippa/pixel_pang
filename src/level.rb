@@ -5,8 +5,11 @@ class Level < GameState
     super
     #self.input = { :e => Chingu::GameStates::Edit }
     
-    @bg1 = Color.new(0xFF97E5E8)
-    @bg2 = Color.new(0xFFF49595)
+    @bg2 = Color.new(0xFFFF0000)
+    #@bg1 = Color.new(0xFF000000)
+    
+    #@bg2 = Color.new(0xFFFFFAA5)
+    @bg1 = Color.new(0xFF000000)
     
     @from = Color.new(0xFF129CA2)
     @to = Color.new(0xFF1E5D5F)
@@ -17,6 +20,8 @@ class Level < GameState
   
   def draw
     super
+    #Image["hud.png"].draw(0,0,100)
+    Image["sunrise_bg.png"].draw(0,0,5)
     fill_gradient(:from => @bg1, :to => @bg2)
     fill_gradient(:rect => @floor, :from => @from, :to => @to, :zorder => 10)
   end
