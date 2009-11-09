@@ -62,7 +62,8 @@ class Level < GameState
         if  brick.bounding_box.collide_point?(ball.left, ball.y) || brick.bounding_box.collide_point?(ball.right, ball.y)
           ball.velocity_x = -ball.velocity_x
         elsif brick.bounding_box.collide_point?(ball.x, ball.top) || brick.bounding_box.collide_point?(ball.x, ball.bottom)
-          ball.velocity_y = -ball.velocity_y
+          #ball.velocity_y = -ball.velocity_y
+          ball.bounce_vertical
         end
       end
       
@@ -74,7 +75,8 @@ class Level < GameState
       end
       
       if ball.bottom > ($window.height - @floor_height)
-        ball.velocity_y = -7 - ball.radius * 0.15
+        #ball.velocity_y = -7 - ball.radius * 0.15
+        ball.bounce_vertical
       end
       
       if ball.left < 0 
@@ -103,10 +105,11 @@ class Level1 < Level
     Brick.create(:x => 164, :y => 400, :image => "brick.bmp")
     Brick.create(:x => 228, :y => 400, :image => "brick.bmp")
     Brick.create(:x => 292, :y => 400, :image => "small_brick.bmp")
-    
+
     Brick.create(:x => 300, :y => 500, :image => "brick.bmp")
     Brick.create(:x => 364, :y => 500, :image => "brick.bmp")
-    Brick.create(:x => 428, :y => 500, :image => "small_brick.bmp")
+    Brick.create(:x => 428, :y => 500, :image => "brick.bmp")
+    Brick.create(:x => 492, :y => 500, :image => "small_brick.bmp")
     
   end
 end

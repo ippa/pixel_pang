@@ -51,7 +51,7 @@ class Laser < GameObject
     @image = Image["laser.png"]
     @zorder = 10
     self.rotation_center(:top_center)
-    every(100) { Star.create(:x => @x, :y => @y)}
+    every(100) { Star.create(:x => @x, :y => @y) }
   end
     
   def update

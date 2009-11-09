@@ -31,6 +31,15 @@ class Ball < GameObject
     @velocity_y = @max_velocity_y   if @velocity_y > @max_velocity_y
   end
   
+  def bounce_upwards
+    self.velocity_y = -7 - self.radius * 0.15
+  end
+   
+  def bounce_vertical
+    v = 7 + self.radius * 0.15
+    self.velocity_y = self.velocity_y > 0 ? -v : v
+  end
+  
   def left
     @x - @radius
   end
