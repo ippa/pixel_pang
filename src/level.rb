@@ -62,7 +62,6 @@ class Level < GameState
         if  brick.bounding_box.collide_point?(ball.left, ball.y) || brick.bounding_box.collide_point?(ball.right, ball.y)
           ball.velocity_x = -ball.velocity_x
         elsif brick.bounding_box.collide_point?(ball.x, ball.top) || brick.bounding_box.collide_point?(ball.x, ball.bottom)
-          #ball.velocity_y = -ball.velocity_y
           ball.bounce_vertical
         end
       end
@@ -75,7 +74,6 @@ class Level < GameState
       end
       
       if ball.bottom > ($window.height - @floor_height)
-        #ball.velocity_y = -7 - ball.radius * 0.15
         ball.bounce_vertical
       end
       
@@ -91,11 +89,33 @@ class Level < GameState
     
     game_objects.destroy_if { |game_object| game_object.outside_window? }
     
-    $window.caption = "Pang! FPS: #{$window.fps} - Game objects: #{game_objects.size}"
+    if Ball.size == 0
+      $window.next_level
+    end
+    
+    $window.caption = "Pang! #{self.class} - FPS: #{$window.fps} - Game objects: #{game_objects.size}"
   end
 end
 
 class Level1 < Level
+  def setup
+    count = game_objects.size
+  
+    load_game_objects
+    
+    # If no game object where loaded, create some.
+    if count == game_objects.size
+      MediumBall.create(:x => 300, :y => 100)
+      MediumBall.create(:x => 500, :y => 200)
+    
+      Brick.create(:x => 32, :y => 400)
+      Brick.create(:x => 96, :y => 400)
+      SmallBrick.create(:x => 160, :y => 400)
+    end
+  end
+end
+
+class Level2 < Level
   def setup
     count = game_objects.size
     
@@ -114,23 +134,25 @@ class Level1 < Level
   end
 end
 
-
-class Brick < GameObject
-  has_trait :collision_detection
-  
-  def initialize(options)
-    super
-    @image = @image || Image["brick.bmp"].retrofy
+class Level3 < Level
+  def setup
+    count = game_objects.size
     
-    self.rotation_center(:top_left)
-    self.factor = 2
-    @bounding_box = Rect.new(@x, @y, @image.width*self.factor, @image.height*self.factor)
-  end
-end
-
-class SmallBrick < Brick
-  def initialize(options)
-    @image = Image["small_brick.bmp"]
-    super
+    load_game_objects
+    
+    # If no game object where loaded, create some.
+    if count == game_objects.size
+      Ball.create(:x => 300, :y => 50)
+      MediumBall.create(:x => 300, :y => 50)
+      MediumBall.create(:x => 350, :y => 50)
+      MediumBall.create(:x => 400, :y => 50)
+      SmallBall.create(:x => 500, :y => 50)
+      TinyBall.create(:x => 550, :y => 50)
+      TinyBall.create(:x => 600, :y => 50)
+    
+      Brick.create(:x => 32, :y => 400)
+      Brick.create(:x => 96, :y => 400)
+      SmallBrick.create(:x => 160, :y => 400)
+    end
   end
 end

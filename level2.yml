@@ -1,7 +1,7 @@
 --- 
 - Ball: 
-    :x: 566.0
-    :y: 124.200000000009
+    :x: 172.0
+    :y: 235.20000000002
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
@@ -9,17 +9,8 @@
     :center_x: 0.5
     :center_y: 0.5
 - Ball: 
-    :x: 746.0
-    :y: 161.000000000009
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :center_x: 0.5
-    :center_y: 0.5
-- Ball: 
-    :x: 644.0
-    :y: 28.0000000000093
+    :x: 70.0
+    :y: 284.900000000021
     :angle: 0
     :zorder: 100
     :factor_x: 1.0
@@ -63,42 +54,6 @@
     :center_x: 0
     :center_y: 0
 - Brick: 
-    :x: 304.0
-    :y: 400.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 2
-    :factor_y: 2
-    :center_x: 0
-    :center_y: 0
-- Brick: 
-    :x: 368.0
-    :y: 400.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 2
-    :factor_y: 2
-    :center_x: 0
-    :center_y: 0
-- Brick: 
-    :x: 432.0
-    :y: 400.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 2
-    :factor_y: 2
-    :center_x: 0
-    :center_y: 0
-- Brick: 
-    :x: 496.0
-    :y: 400.0
-    :angle: 0
-    :zorder: 100
-    :factor_x: 2
-    :factor_y: 2
-    :center_x: 0
-    :center_y: 0
-- Brick: 
     :x: 560.0
     :y: 400.0
     :angle: 0
@@ -134,3 +89,21 @@
     :factor_y: 2
     :center_x: 0
     :center_y: 0
+- Ball: 
+    :x: 71.0
+    :y: 226.500000000018
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.5
+    :factor_y: 0.5
+    :center_x: 0.5
+    :center_y: 0.5
+- Ball: 
+    :x: 181.0
+    :y: 226.500000000018
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.5
+    :factor_y: 0.5
+    :center_x: 0.5
+    :center_y: 0.5

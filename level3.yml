@@ -1,0 +1,172 @@
+--- 
+- Ball: 
+    :x: 536
+    :y: 172.600000000001
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :center_x: 0.5
+    :center_y: 0.5
+- MediumBall: 
+    :x: 536
+    :y: 356.25
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.5
+    :factor_y: 0.5
+    :center_x: 0.5
+    :center_y: 0.5
+- MediumBall: 
+    :x: 586
+    :y: 356.25
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.5
+    :factor_y: 0.5
+    :center_x: 0.5
+    :center_y: 0.5
+- MediumBall: 
+    :x: 636
+    :y: 356.25
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.5
+    :factor_y: 0.5
+    :center_x: 0.5
+    :center_y: 0.5
+- SmallBall: 
+    :x: 736
+    :y: 433.85
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.25
+    :factor_y: 0.25
+    :center_x: 0.5
+    :center_y: 0.5
+- TinyBall: 
+    :x: 786
+    :y: 473.3125
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.125
+    :factor_y: 0.125
+    :center_x: 0.5
+    :center_y: 0.5
+- TinyBall: 
+    :x: 751.75
+    :y: 473.3125
+    :angle: 0
+    :zorder: 100
+    :factor_x: 0.125
+    :factor_y: 0.125
+    :center_x: 0.5
+    :center_y: 0.5
+- Brick: 
+    :x: 32
+    :y: 400
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 96
+    :y: 400
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- SmallBrick: 
+    :x: 160
+    :y: 400
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- SmallBrick: 
+    :x: 400.0
+    :y: 304.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 480.0
+    :y: 256.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 544.0
+    :y: 256.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 608.0
+    :y: 256.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 272.0
+    :y: 304.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 336.0
+    :y: 304.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 512.0
+    :y: 448.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 576.0
+    :y: 448.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 448.0
+    :y: 448.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0

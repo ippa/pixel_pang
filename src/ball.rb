@@ -23,7 +23,7 @@ class Ball < GameObject
     @velocity_x      =  (@direction == :right) ? 2 : -2
     @max_velocity_y  = 7
     
-    @image = Image["ball.png"].retrofy
+    @image = Image["ball.png"]
     @color = Gosu::Color.new(0xFFE95FFA)
   end
   
@@ -68,6 +68,25 @@ class Ball < GameObject
   end
   
 end
+
+class MediumBall < Ball
+  def initialize(options)
+    super(options.merge({:radius => 25}))
+  end
+end
+
+class SmallBall < Ball
+  def initialize(options)
+    super(options.merge({:radius => 12.5}))
+  end
+end
+
+class TinyBall < Ball
+  def initialize(options)
+    super(options.merge({:radius => 6.25}))
+  end
+end
+
 
 class Pop < GameObject
   has_trait :timer
