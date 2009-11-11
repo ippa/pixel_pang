@@ -6,7 +6,7 @@ require 'opengl'
 
 begin
   require '../chingu/lib/chingu'
-rescue
+rescue LoadError
   require 'chingu'
 end
 
