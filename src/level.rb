@@ -5,7 +5,7 @@ class Level < GameState
     super
     
     if defined?(Chingu::GameStates::Edit)
-      self.input = { :e => Chingu::GameStates::Edit }
+      self.input = { :e => GameStates::Edit.new(:grid => [16, 16], :classes => [Brick, SmallBrick]) }
     end
     
     @bg2 = Color.new(0xFFFF0000)
@@ -97,23 +97,19 @@ end
 
 class Level1 < Level
   def setup
+    count = game_objects.size
+    
     load_game_objects
     
-    if Brick.size == 0
-      Ball.create(:x => 100, :y => 50)
+    # If no game object where loaded, create some.
+    if count == game_objects.size
+      Ball.create(:x => 200, :y => 50)
       Ball.create(:x => 300, :y => 100)
       Ball.create(:x => 500, :y => 200)
     
-      Brick.create(:x => 36, :y => 400)
-      Brick.create(:x => 100, :y => 400)
-      Brick.create(:x => 164, :y => 400)
-      Brick.create(:x => 228, :y => 400)
-      SmallBrick.create(:x => 292, :y => 400)
-  
-      Brick.create(:x => 300, :y => 500)
-      Brick.create(:x => 364, :y => 500)
-      Brick.create(:x => 428, :y => 500)
-      SmallBrick.create(:x => 492, :y => 500)
+      Brick.create(:x => 32, :y => 400)
+      Brick.create(:x => 96, :y => 400)
+      SmallBrick.create(:x => 160, :y => 400)
     end
   end
 end

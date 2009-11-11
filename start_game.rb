@@ -3,8 +3,12 @@
 #
 require 'rubygems'
 require 'opengl'
-require 'chingu'
-#require '../chingu/lib/chingu'
+
+begin
+  require '../chingu/lib/chingu'
+rescue
+  require 'chingu'
+end
 
 include Gosu
 include Chingu

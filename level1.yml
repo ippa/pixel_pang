@@ -1,0 +1,136 @@
+--- 
+- Ball: 
+    :x: 566.0
+    :y: 124.200000000009
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :center_x: 0.5
+    :center_y: 0.5
+- Ball: 
+    :x: 746.0
+    :y: 161.000000000009
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :center_x: 0.5
+    :center_y: 0.5
+- Ball: 
+    :x: 644.0
+    :y: 28.0000000000093
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.0
+    :factor_y: 1.0
+    :center_x: 0.5
+    :center_y: 0.5
+- Brick: 
+    :x: 48.0
+    :y: 400.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 112.0
+    :y: 400.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 176.0
+    :y: 400.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 240.0
+    :y: 400.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 304.0
+    :y: 400.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 368.0
+    :y: 400.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 432.0
+    :y: 400.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 496.0
+    :y: 400.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 560.0
+    :y: 400.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 624.0
+    :y: 400.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- SmallBrick: 
+    :x: 752.0
+    :y: 400.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
+- Brick: 
+    :x: 688.0
+    :y: 400.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :center_x: 0
+    :center_y: 0
