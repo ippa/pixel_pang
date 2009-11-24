@@ -1,16 +1,7 @@
 --- 
-- Ball: 
-    :x: 536
-    :y: 172.600000000001
-    :angle: 0
-    :zorder: 100
-    :factor_x: 1.0
-    :factor_y: 1.0
-    :center_x: 0.5
-    :center_y: 0.5
 - MediumBall: 
-    :x: 536
-    :y: 356.25
+    :x: 205
+    :y: 355.350000000001
     :angle: 0
     :zorder: 100
     :factor_x: 0.5
@@ -18,17 +9,8 @@
     :center_x: 0.5
     :center_y: 0.5
 - MediumBall: 
-    :x: 586
-    :y: 356.25
-    :angle: 0
-    :zorder: 100
-    :factor_x: 0.5
-    :factor_y: 0.5
-    :center_x: 0.5
-    :center_y: 0.5
-- MediumBall: 
-    :x: 636
-    :y: 356.25
+    :x: 561
+    :y: 330.700000000001
     :angle: 0
     :zorder: 100
     :factor_x: 0.5
@@ -36,8 +18,8 @@
     :center_x: 0.5
     :center_y: 0.5
 - SmallBall: 
-    :x: 736
-    :y: 433.85
+    :x: 719.5
+    :y: 509.349999999999
     :angle: 0
     :zorder: 100
     :factor_x: 0.25
@@ -45,8 +27,8 @@
     :center_x: 0.5
     :center_y: 0.5
 - TinyBall: 
-    :x: 786
-    :y: 473.3125
+    :x: 769.75
+    :y: 461.937499999999
     :angle: 0
     :zorder: 100
     :factor_x: 0.125
@@ -54,8 +36,8 @@
     :center_x: 0.5
     :center_y: 0.5
 - TinyBall: 
-    :x: 751.75
-    :y: 473.3125
+    :x: 667.75
+    :y: 461.937499999999
     :angle: 0
     :zorder: 100
     :factor_x: 0.125
@@ -100,7 +82,7 @@
     :center_y: 0
 - Brick: 
     :x: 480.0
-    :y: 256.0
+    :y: 288.0
     :angle: 0
     :zorder: 100
     :factor_x: 2
@@ -109,7 +91,7 @@
     :center_y: 0
 - Brick: 
     :x: 544.0
-    :y: 256.0
+    :y: 288.0
     :angle: 0
     :zorder: 100
     :factor_x: 2
@@ -118,7 +100,7 @@
     :center_y: 0
 - Brick: 
     :x: 608.0
-    :y: 256.0
+    :y: 288.0
     :angle: 0
     :zorder: 100
     :factor_x: 2

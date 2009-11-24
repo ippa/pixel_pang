@@ -59,7 +59,7 @@ class Level < GameState
     Ball.all.each do |ball|
       
       Brick.all.each do |brick|
-        if  brick.bounding_box.collide_point?(ball.left, ball.y) || brick.bounding_box.collide_point?(ball.right, ball.y)
+        if brick.bounding_box.collide_point?(ball.left, ball.y) || brick.bounding_box.collide_point?(ball.right, ball.y)
           ball.velocity_x = -ball.velocity_x
         elsif brick.bounding_box.collide_point?(ball.x, ball.top) || brick.bounding_box.collide_point?(ball.x, ball.bottom)
           ball.bounce_vertical

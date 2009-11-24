@@ -1,5 +1,6 @@
 class Player < Chingu::GameObject
-  has_trait :velocity, :retrofy, :timer, :collision_detection
+  has_traits :velocity, :retrofy, :timer, :collision_detection
+  has_trait :radius, :debug => true
   
   def initialize(options)
     super
@@ -42,7 +43,7 @@ class Player < Chingu::GameObject
 end
 
 class Laser < GameObject
-  has_trait :collision_detection, :timer
+  has_traits :collision_detection, :timer
   
   def initialize(options)
     super
@@ -65,7 +66,7 @@ end
 
 
 class Star < GameObject
-  has_trait :velocity
+  has_traits :velocity
   
   def initialize(options)
     super
