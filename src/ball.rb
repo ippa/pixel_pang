@@ -1,6 +1,6 @@
 class Ball < GameObject
-  has_trait :velocity
-  attr_accessor :radius
+  has_traits :velocity, :collision_detection, :timer
+  has_trait :bounding_circle, :debug => true
   
   def initialize(options)
     super
@@ -17,7 +17,7 @@ class Ball < GameObject
     end
 
     self.factor = @radius.to_f / @default_radius.to_f # resize image according to @radius
-    self.rotation_center(:center)
+    self.rotation_center = :center
     
     @acceleration_y  = 0.30  # some gravity
     @velocity_x      =  (@direction == :right) ? 2 : -2
@@ -36,30 +36,30 @@ class Ball < GameObject
   end
    
   def bounce_vertical
-    v = 7 + self.radius * 0.15
+    v = 7 + self.radius * 0.10
     self.velocity_y = self.velocity_y > 0 ? -v : v
   end
   
   def left
-    @x - @radius
+    @x - radius
   end
 
   def right
-    @x + @radius
+    @x + radius
   end
 
   def top
-    @y + @radius
+    @y + radius
   end
 
   def bottom
-    @y + @radius
+    @y + radius
   end
 
   def hit_by(object)
     Pop.create(:owner => self)
     
-    if @radius > 10
+    if radius > 10
       Ball.create(:owner => self, :direction => :left)
       Ball.create(:owner => self, :direction => :right)
     end
@@ -97,7 +97,7 @@ class Pop < GameObject
     @x = @owner.x
     @y = @owner.y
     self.factor = @owner.factor
-    self.rotation_center(:center)
+    self.rotation_center = :center
    
     @image = Image["pop.png"]
     Sound["pop.wav"].play

@@ -5,9 +5,9 @@ class Brick < GameObject
   
   def initialize(options)
     super
-    @image = @image || Image["brick.bmp"].retrofy
+    @image = @image || Image["brick.bmp"]
     self.rotation_center = :top_left
-    self.factor = 2
+    self.factor = 3
   end
 end
 

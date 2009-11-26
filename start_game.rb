@@ -2,7 +2,7 @@
 # 
 #
 require 'rubygems'
-require 'opengl'
+#require 'opengl'
 
 begin
   require '../chingu/lib/chingu'

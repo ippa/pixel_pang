@@ -32,16 +32,11 @@ class Level < GameState
     #
     # Later on when we have ordinary bullets ...
     #
-    
-    #Bullet.each_radius_collision(Ball) do |bullet, ball|
-    #  ball.hit_by(bullet)
-    #  bullet.destroy
-    #end
-    
+       
     #
     # Check for Player <-> Ball collisions
     #
-    $window.player.each_radius_collision(Ball) do |player, ball|
+    $window.player.each_bounding_circle_collision(Ball) do |player, ball|
       player.hit_by(ball)
     end
     
@@ -58,13 +53,31 @@ class Level < GameState
     #
     Ball.all.each do |ball|
       
-      Brick.all.each do |brick|
-        if brick.bounding_box.collide_point?(ball.left, ball.y) || brick.bounding_box.collide_point?(ball.right, ball.y)
-          ball.velocity_x = -ball.velocity_x
-        elsif brick.bounding_box.collide_point?(ball.x, ball.top) || brick.bounding_box.collide_point?(ball.x, ball.bottom)
-          ball.bounce_vertical
-        end
+      ball.each_collision(Brick) do |ball, brick|
+        # Basicly invert Y-axis velocity
+        ball.bounce_vertical
+        
+        #ball_to_roof = distance(ball.x, ball.y, brick.bounding_box.centerx, brick.bounding_box.y)
+        #ball_to_side = distance(ball.x, ball.y, brick.bounding_box.centerx, brick.bounding_box.y)
+        
+        #if ball.bottom+2 > brick.bb.top || ball.top-2 < brick.bb.bottom
+        #  ball.velocity_x = -ball.velocity_x
+        #end
+        
+        # on it's way down, bounce upwards!
+        ball.y = brick.bounding_box.top - ball.radius - 2   if ball.velocity_y < 0
+
+        # on it's way up, bounce downwards!
+        ball.y = brick.bounding_box.bottom + ball.radius + 2   if ball.velocity_y > 0
       end
+      
+      #Brick.all.each do |brick|
+      #  if brick.bounding_box.collide_point?(ball.left, ball.y) || brick.bounding_box.collide_point?(ball.right, ball.y)
+      #    ball.velocity_x = -ball.velocity_x
+      #  elsif brick.bounding_box.collide_point?(ball.x, ball.top) || brick.bounding_box.collide_point?(ball.x, ball.bottom)
+      #    ball.bounce_vertical
+      #  end
+      #end
       
       Laser.all.each do |laser|
         if ball.bottom > laser.y && ball.left < laser.x && ball.right > laser.x
@@ -99,19 +112,20 @@ end
 
 class Level1 < Level
   def setup
-    count = game_objects.size
+    #count = game_objects.size
   
-    load_game_objects
+    #load_game_objects
     
     # If no game object where loaded, create some.
-    if count == game_objects.size
+    #if count == game_objects.size
+      Ball.create(:x => 200, :y => 50)
       MediumBall.create(:x => 300, :y => 100)
       MediumBall.create(:x => 500, :y => 200)
     
       Brick.create(:x => 32, :y => 400)
       Brick.create(:x => 96, :y => 400)
       SmallBrick.create(:x => 160, :y => 400)
-    end
+    #end
   end
 end
 
@@ -120,13 +134,13 @@ class Level2 < Level
     count = game_objects.size
     
     load_game_objects
+
+    Ball.create(:x => 200, :y => 50)
+    Ball.create(:x => 300, :y => 100)
+    Ball.create(:x => 500, :y => 200)
     
     # If no game object where loaded, create some.
     if count == game_objects.size
-      Ball.create(:x => 200, :y => 50)
-      Ball.create(:x => 300, :y => 100)
-      Ball.create(:x => 500, :y => 200)
-    
       Brick.create(:x => 32, :y => 400)
       Brick.create(:x => 96, :y => 400)
       SmallBrick.create(:x => 160, :y => 400)

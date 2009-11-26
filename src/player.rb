@@ -1,21 +1,21 @@
 class Player < Chingu::GameObject
-  has_traits :velocity, :retrofy, :timer, :collision_detection
-  has_trait :radius, :debug => true
+  has_traits :velocity, :timer, :collision_detection
+  has_trait :bounding_circle, :debug => true
   
   def initialize(options)
     super
     
     self.input = { :holding_left => :left, 
                    :holding_right => :right, 
-                   :space => :fire
-                 }
-    self.rotation_center(:center_bottom)
+                   :space => :fire }
+                   
+    self.rotation_center = :center_bottom
     
-    @radius = 25
+    # @radius = 25
     @speed = 2.5
     @cooling_down = false
     self.factor = $window.factor
-    @image = Image["player.png"].retrofy
+    @image = Image["player.png"]
   end
 
   def left
@@ -80,7 +80,7 @@ class Star < GameObject
     #
     # Fall down rotating and fade out .. destroy when faded.
     #
-    @angle += 5
+    self.angle += 5
     self.alpha -= 10
     destroy if self.alpha < 10
   end
