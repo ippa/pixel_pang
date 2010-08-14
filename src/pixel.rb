@@ -3,24 +3,24 @@ class Pixel < GameObject
   trait :bounding_box, :debug => false
   
   def initialize(options)
-    @image = Image["big_pixel.png"]
-    
+        
     super
     
     @direction = options[:direction] || :right
-    @size = 20
     
-    self.rotation_center  = :top_left
+    self.rotation_center  = :center
     self.acceleration_y   = 0.30
     self.velocity_x       =  (@direction == :right) ? 2 : -2
     self.max_velocity     = 20
-    
+    self.image = Image["#{self.filename}.bmp"]
+    self.factor = 4
+
     cache_bounding_box
   end
      
   def bounce_vertical
     self.y = self.previous_y
-    v = 5 + (@size * 0.20)
+    v = 5 + (@size * 0.40)
     self.velocity_y = self.velocity_y > 0 ? -v : v    
   end
   
@@ -45,12 +45,18 @@ class Pixel < GameObject
   end
   
   def hit_by(object)
-    Pop.create(:owner => self)
-    
-    #if bouncyness > 10
-    #  Ball.create(:owner => self, :direction => :left)
-    #  Ball.create(:owner => self, :direction => :right)
-    #end
+  
+    if @size == 20
+      SmallPixel.create(:direction => :left, :x => self.x, :y => self.y)
+      SmallPixel.create(:direction => :right, :x => self.x, :y => self.y)
+      4.times { Pop.create(:owner => self) }
+    elsif @size == 10
+      TinyPixel.create(:direction => :left, :x => self.x, :y => self.y)
+      TinyPixel.create(:direction => :right, :x => self.x, :y => self.y)
+      4.times { Pop.create(:owner => self) }      
+    else
+      2.times { Pop.create(:owner => self) }
+    end
     
     destroy
   end
@@ -59,42 +65,46 @@ end
 
 class BigPixel < Pixel
   def setup
-    self.factor = 3
-    cache_bounding_box
+    self.zorder = 30
+    @size = 20
   end
 end
 
 class SmallPixel < Pixel
   def setup
-    self.factor = 2
-    cache_bounding_box
+    self.zorder = 31
+    @size = 10
   end
 end
 
 class TinyPixel < Pixel
   def setup
-    self.factor = 1
-    cache_bounding_box
-  end
+    self.zorder = 32
+    @size = 5
+  end  
 end
-
+  
 class Pop < GameObject
-  trait :timer
+  traits :timer, :velocity
   
   def initialize(options)
     super
     @owner = options[:owner]    
-    @x = @owner.x
-    @y = @owner.y
-    self.factor = @owner.factor
-    self.rotation_center = :center
-   
-    @image = Image["pop.png"]
+    @angle_velocity = rand(10)
+    self.attributes = @owner.attributes
+    self.image = @owner.image
+    self.velocity_y = -5 + rand(2)
+    self.velocity_x = (-5 + rand(10)) * 2
+    self.acceleration_y = 0.50
+    self.mode = :additive
+    self.color = Color::WHITE
+    self.alpha = 100
     Sound["pop.wav"].play
-    after(300) { destroy }
   end
   
   def update
-    @angle += 15
+    self.angle += @angle_velocity
+    self.alpha -= 1
+    destroy if self.alpha == 0
   end
 end

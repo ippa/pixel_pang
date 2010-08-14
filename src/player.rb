@@ -15,13 +15,13 @@ class Player < GameObject
     @cooling_down = false
     
     @anim = {}
-    @anim[:full] = Animation.new(:file => "walkright.bmp", :size => [42, 42], :delay => 40)
+    @anim[:full] = Animation.new(:file => "walk.bmp", :size => [42, 42], :delay => 40)
     @anim[:walking] = @anim[:full][0..2]
     @image = @anim[:walking].first
     
     @anim[:fire] = Animation.new(:file => "fire.bmp", :size => [42, 42], :delay => 40)
     
-    self.zorder = 40
+    self.zorder = 20
     self.acceleration_y = 0.50
     cache_bounding_box
   end
@@ -64,7 +64,7 @@ class Player < GameObject
   def hit_by(object)
     Sound["die.wav"].play
     object.destroy
-    Pop.create(:owner => self)
+    #Pop.create(:owner => self)
   end
 end
 

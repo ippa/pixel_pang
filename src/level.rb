@@ -57,7 +57,7 @@ class Level < GameState
       laser.destroy
     end
       
-    game_objects.destroy_if { |game_object| game_object.outside_window? }
+    #game_objects.destroy_if { |game_object| game_object.outside_window? }
     
     if Pixel.size == 0
       $window.next_level
