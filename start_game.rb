@@ -1,13 +1,12 @@
 #
 # 
 #
-#require 'rubygems'
 
 begin
   raise LoadError if defined?(Ocra)
   require '../chingu/lib/chingu'
 rescue LoadError
-  #require 'chingu'
+  require 'chingu'
 end
 
 #$: << File.join(ROOT,"lib")
