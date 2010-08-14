@@ -1,1 +1,2 @@
-ocra start_game.rb --no-autodll --windows media\** sounds\** models\** lib\**\**\**
+ocra start_game.rb --console media\** src\** lib\**
+

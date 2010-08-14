@@ -1,23 +1,12 @@
-
 class Brick < GameObject
-  has_trait :collision_detection
-  has_trait :bounding_box, :debug => true
+  traits :bounding_box, :collision_detection
   
-  def initialize(options)
-    super
-    @image = @image || Image["brick.bmp"]
+  def setup
+    @image ||= Image["#{self.filename}.bmp"]
     self.rotation_center = :top_left
-    self.factor = 3
+    cache_bounding_box
   end
 end
 
-#
-# Warning, trait bounding_box doesn't inherit well.
-#
-class SmallBrick < Brick
-  ##has_trait :bounding_box, :debug => true
-  def initialize(options)
-    @image = Image["small_brick.bmp"]
-    super
-  end
-end
+class LeftBrick < Brick; end
+class RightBrick < Brick; end

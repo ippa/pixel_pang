@@ -1,0 +1,15 @@
+-Pang Remake-
+
+Original Sprites by Darryl Wainwright
+
+-Character 42*42px
+walkleft 3 frames
+walkright 3 frames
+shoot 2 frames
+
+-Bubble 100*100px
+4 frames
+
+-Grass 42*42px
+3 in the row
+

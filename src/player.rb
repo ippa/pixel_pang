@@ -1,6 +1,6 @@
-class Player < Chingu::GameObject
-  has_traits :velocity, :timer, :collision_detection
-  has_trait :bounding_circle, :debug => true
+class Player < GameObject
+  traits :velocity, :timer, :collision_detection
+  trait :bounding_box, :scale => 0.60, :debug => DEBUG
   
   def initialize(options)
     super
@@ -11,62 +11,90 @@ class Player < Chingu::GameObject
                    
     self.rotation_center = :center_bottom
     
-    # @radius = 25
-    @speed = 2.5
+    @speed = 4
     @cooling_down = false
-    self.factor = $window.factor
-    @image = Image["player.png"]
+    
+    @anim = {}
+    @anim[:full] = Animation.new(:file => "walkright.bmp", :size => [42, 42], :delay => 40)
+    @anim[:walking] = @anim[:full][0..2]
+    @image = @anim[:walking].first
+    
+    @anim[:fire] = Animation.new(:file => "fire.bmp", :size => [42, 42], :delay => 40)
+    
+    self.zorder = 40
+    self.acceleration_y = 0.50
+    cache_bounding_box
+  end
+  
+  def update
   end
 
   def left
-    @x -= @speed 
-    @x += @speed  if outside_window?
+    move(-@speed, 0)
+    @image = @anim[:walking].next
+    @factor_x = -$window.factor
   end
 
   def right
-    @x += @speed
-    @x -= @speed  if outside_window?    
+    move(@speed, 0)
+    @image = @anim[:walking].next
+    @factor_x = $window.factor
+  end
+  
+  def move(x, y)
+    self.x += x
+    self.x = self.previous_x  if $window.current_game_state.game_object_map.from_game_object(self)
+    self.x = self.previous_x  if self.bb.left < 0
+    self.x = self.previous_x  if self.bb.right > $window.width
+
+    self.y += y
+    if $window.current_game_state.game_object_map.from_game_object(self)
+      self.stop
+      self.y = self.previous_y
+    end
   end
   
   def fire   
     return if Laser.size > 0
     #@cooling_down = true; after(200) { @cooling_down = false }
-    Laser.create(:x => @x, :y => $window.height - $window.current_game_state.floor_height)
+    Laser.create(:x => @x, :y => self.bb.top)
+    @image = @anim[:fire].first
   end
   
   def hit_by(object)
     Sound["die.wav"].play
     object.destroy
     Pop.create(:owner => self)
-    #push_game_state(Die)
   end
 end
 
 class Laser < GameObject
-  has_traits :collision_detection, :timer
+  traits :collision_detection, :timer
+  trait :bounding_box, :scale => 0.80, :debug => DEBUG
   
-  def initialize(options)
-    super
+  def setup
     Sound["player_fire.wav"].play(0.2)
     @factor_seed = 0.1
     @image = Image["laser.png"]
-    @zorder = 10
+    self.zorder = 20
     self.rotation_center(:top_center)
+
+    every(50) { self.mode = (self.mode == :additive) ? :default : :additive }
     every(100) { Star.create(:x => @x, :y => @y) }
+    cache_bounding_box
   end
     
   def update
     @factor_seed += 0.5
     @factor_seed = 0 if @factor_seed > Math::PI * 2
     self.factor_x = 1 + Math::sin(@factor_seed)/6
-    @y -= 7 
+    @y -= 6
   end
   
 end
 
-
 class Star < GameObject
-  has_traits :velocity
+  trait :velocity
   
   def initialize(options)
     super

@@ -1,10 +1,11 @@
 class Ball < GameObject
-  has_traits :velocity, :collision_detection, :timer
-  has_trait :bounding_circle, :debug => true
+  traits :velocity, :collision_detection, :timer
+  trait :bounding_circle, :debug => true
   
   def initialize(options)
     super
     
+    @image = Image["ball.png"]
     @default_radius = 50.0
     @direction = options[:direction] || :right
     @radius = options[:radius] || @default_radius
@@ -23,7 +24,6 @@ class Ball < GameObject
     @velocity_x      =  (@direction == :right) ? 2 : -2
     @max_velocity_y  = 7
     
-    @image = Image["ball.png"]
     @color = Gosu::Color.new(0xFFE95FFA)
   end
   
@@ -87,9 +87,8 @@ class TinyBall < Ball
   end
 end
 
-
 class Pop < GameObject
-  has_trait :timer
+  trait :timer
   
   def initialize(options)
     super
