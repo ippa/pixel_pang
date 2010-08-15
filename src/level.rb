@@ -4,9 +4,9 @@ class Level < GameState
   def initialize(options = {})
     super
     
-    if defined?(Chingu::GameStates::Edit)
-      self.input = { :e => :edit }
-    end
+    self.input = { :e => :edit, :esc => :exit, :p => GameStates::Pause }
+    
+    @player = Player.create(:x => 200, :y => $window.height - 100)
     
     @bg1 = Color::BLUE
     @bg2 = Color::CYAN
@@ -26,7 +26,7 @@ class Level < GameState
   def edit
     push_game_state(GameStates::Edit.new(:file => @file, :grid => @grid, :except => [Star, Laser, Player, Ball, TinyBall, MediumBall, SmallBall, Pixel], :debug => true))
   end
-  
+
   def draw
     super
     #Image["hud.png"].draw(0,0,100)
@@ -38,7 +38,7 @@ class Level < GameState
   def update
     super
         
-    $window.player.each_collision(Pixel) do |player, pixel|
+    @player.each_collision(Pixel) do |player, pixel|
       player.hit_by(pixel)
     end
     
@@ -59,9 +59,9 @@ class Level < GameState
       
     #game_objects.destroy_if { |game_object| game_object.outside_window? }
     
-    if Pixel.size == 0
-      $window.next_level
-    end
+    #if Pixel.size == 0
+    #  $window.next_level
+    #end
     
     $window.caption = "PixelPang! #{self.class} - FPS: #{$window.fps} - Game objects: #{game_objects.size}"
   end

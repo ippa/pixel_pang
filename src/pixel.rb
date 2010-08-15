@@ -20,8 +20,7 @@ class Pixel < GameObject
      
   def bounce_vertical
     self.y = self.previous_y
-    v = 5 + (@size * 0.40)
-    self.velocity_y = self.velocity_y > 0 ? -v : v    
+    self.velocity_y = self.velocity_y > 0 ? -5-(@size*0.40) : self.velocity_y.abs
   end
   
   def bounce_horizontal
