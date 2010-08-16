@@ -23,7 +23,7 @@ require_all File.join(ROOT, "src")
 exit if defined?(Ocra)
 
 class Game < Chingu::Window
-  attr_accessor :levels
+  attr_accessor :levels, :score, :lives
   
   def initialize
     super(800, 600, false)
@@ -31,6 +31,9 @@ class Game < Chingu::Window
     retrofy
     self.factor = 2
     self.input = { :tab => :next_level }
+    
+    @score = 0
+    @lives = 3
     
     #gamercv = YAML.load_file(File.join(ROOT, "gamercv.yml"))
     #@high_score_list = OnlineHighScoreList.new(:game_id => 3, :login => gamercv["login"], :password => gamercv["password"], :limit => 10)

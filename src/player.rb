@@ -2,6 +2,8 @@ class Player < GameObject
   traits :velocity, :timer, :collision_detection
   trait :bounding_box, :scale => 0.60, :debug => DEBUG
   
+  attr_accessor :score
+  
   def initialize(options)
     super
     
@@ -62,9 +64,7 @@ class Player < GameObject
   end
   
   def hit_by(object)
-    Sound["die.wav"].play
-    object.destroy
-    #Pop.create(:owner => self)
+    Sound["die.wav"].play(0.1)
   end
 end
 
@@ -73,7 +73,7 @@ class Laser < GameObject
   trait :bounding_box, :scale => 0.80, :debug => DEBUG
   
   def setup
-    Sound["player_fire.wav"].play(0.2)
+    Sound["player_fire.wav"].play(0.1)
     @factor_seed = 0.1
     @image = Image["laser.png"]
     self.zorder = 20

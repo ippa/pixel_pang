@@ -1,26 +1,24 @@
 class Level < GameState
-  attr_reader :floor_height, :game_object_map
+  trait :timer
+  attr_reader :game_object_map, :player
   
-  def initialize(options = {})
-    super
-    
+  def setup
     self.input = { :e => :edit, :esc => :exit, :p => GameStates::Pause }
     
-    @player = Player.create(:x => 200, :y => $window.height - 100)
-    
     @bg1 = Color::BLUE
-    @bg2 = Color::CYAN
-    
+    @bg2 = Color::CYAN    
     @from = Color.new(0xFF129CA2)
     @to = Color.new(0xFF1E5D5F)
-    
-    @floor_height = 40
     @grid = [16,16]
-    @floor = Rect.new(0, $window.height - @floor_height, $window.width, @floor_height)
+    
     @file = File.join(ROOT, "levels", self.filename + ".yml")
     load_game_objects(:file => @file)
     
+    @player = Player.create(:x => $window.width/2, :y => $window.height - 80)    
     @game_object_map = GameObjectMap.new(:grid => @grid, :game_objects => Brick.all + Block.all)
+    
+    game_objects.pause!
+    after(1000) { game_objects.unpause! }
   end
   
   def edit
@@ -32,7 +30,6 @@ class Level < GameState
     #Image["hud.png"].draw(0,0,100)
     fill_gradient(:from => @bg1, :to => @bg2)
     #Image["sunrise_bg.png"].draw(0,0,5)
-    fill_gradient(:rect => @floor, :from => @from, :to => @to, :zorder => 10)
   end
   
   def update
@@ -40,6 +37,10 @@ class Level < GameState
         
     @player.each_collision(Pixel) do |player, pixel|
       player.hit_by(pixel)
+      $window.lives -= 1
+      game_objects.pause!
+      @player.collidable = false
+      after(500) { switch_game_state(self.class) }   # Restart level
     end
     
     #
@@ -54,19 +55,47 @@ class Level < GameState
     #
     Laser.each_collision(Pixel) do |laser, pixel|
       pixel.hit_by(laser)
+      $window.score += pixel.power
+      text = Text.create(pixel.power, :x => pixel.x, :y => pixel.y)
+      after(1000) { text.destroy }
       laser.destroy
     end
       
     #game_objects.destroy_if { |game_object| game_object.outside_window? }
     
-    #if Pixel.size == 0
-    #  $window.next_level
-    #end
+    if Pixel.size == 0
+      $window.next_level
+    end
     
-    $window.caption = "PixelPang! #{self.class} - FPS: #{$window.fps} - Game objects: #{game_objects.size}"
+    $window.caption = "PixelPang - #{self.class}! Score: #{$window.score}. FPS: #{$window.fps} - Game objects: #{game_objects.size}"
   end
 end
 
 class Level1 < Level; end
 class Level2 < Level; end
 class Level3 < Level; end
+
+class ScoreText < Text
+  traits :timer, :velocity
+  
+  def setup
+    self.velocity_y = -0.5
+    self.color = Color::BLUE
+    #every(400) { self.alpha -= 1 }
+  end
+  
+  def update
+    self.alpha -= 1
+    destroy if self.alpha == 0
+  end
+  
+end
+
+#class Intro < GameState
+#  def setup
+#  end
+#  
+#  def draw
+#    previous_game_state.draw
+#  end
+#end

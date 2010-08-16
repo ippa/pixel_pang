@@ -1,13 +1,14 @@
 class Pixel < GameObject
   traits :velocity, :collision_detection, :timer
   trait :bounding_box, :debug => false
-  
+  attr_reader :power
+    
   def initialize(options)
         
     super
     
     @direction = options[:direction] || :right
-    
+        
     self.rotation_center  = :center
     self.acceleration_y   = 0.30
     self.velocity_x       =  (@direction == :right) ? 2 : -2
@@ -20,7 +21,7 @@ class Pixel < GameObject
      
   def bounce_vertical
     self.y = self.previous_y
-    self.velocity_y = self.velocity_y > 0 ? -5-(@size*0.40) : self.velocity_y.abs
+    self.velocity_y = self.velocity_y > 0 ? -5-(@power*0.40) : self.velocity_y.abs
   end
   
   def bounce_horizontal
@@ -40,16 +41,14 @@ class Pixel < GameObject
       
     self.y += y
     self.bounce_vertical    if parent.game_object_map.from_game_object(self)
-    self.bounce_vertical    if self.bb.bottom > ($window.height - parent.floor_height)
   end
   
   def hit_by(object)
-  
-    if @size == 20
+    if @power == 20
       SmallPixel.create(:direction => :left, :x => self.x, :y => self.y)
       SmallPixel.create(:direction => :right, :x => self.x, :y => self.y)
       4.times { Pop.create(:owner => self) }
-    elsif @size == 10
+    elsif @power == 10
       TinyPixel.create(:direction => :left, :x => self.x, :y => self.y)
       TinyPixel.create(:direction => :right, :x => self.x, :y => self.y)
       4.times { Pop.create(:owner => self) }      
@@ -65,21 +64,21 @@ end
 class BigPixel < Pixel
   def setup
     self.zorder = 30
-    @size = 20
+    @power = 20
   end
 end
 
 class SmallPixel < Pixel
   def setup
     self.zorder = 31
-    @size = 10
+    @power = 10
   end
 end
 
 class TinyPixel < Pixel
   def setup
     self.zorder = 32
-    @size = 5
+    @power = 5
   end  
 end
   
@@ -98,7 +97,7 @@ class Pop < GameObject
     self.mode = :additive
     self.color = Color::WHITE
     self.alpha = 100
-    Sound["pop.wav"].play
+    Sound["pop.wav"].play(0.2)
   end
   
   def update
