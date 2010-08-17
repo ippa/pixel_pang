@@ -207,3 +207,35 @@
     :factor_x: 2.0
     :factor_y: 2.0
     :color: 4294967295
+- BigPixel: 
+    :x: 80.0
+    :y: 144.0
+    :angle: 0
+    :zorder: 30
+    :factor_x: 1.37142857142857
+    :factor_y: 1.37142857142857
+    :color: 4294967295
+- BigPixel: 
+    :x: 288.0
+    :y: 160.0
+    :angle: 0
+    :zorder: 30
+    :factor_x: 1.37142857142857
+    :factor_y: 1.37142857142857
+    :color: 4294967295
+- SmallPixel: 
+    :x: 512.0
+    :y: 160.0
+    :angle: 0
+    :zorder: 31
+    :factor_x: 1.88235294117647
+    :factor_y: 1.88235294117647
+    :color: 4294967295
+- SmallPixel: 
+    :x: 576.0
+    :y: 160.0
+    :angle: 0
+    :zorder: 31
+    :factor_x: 1.88235294117647
+    :factor_y: 1.88235294117647
+    :color: 4294967295

@@ -3,10 +3,10 @@ class Level < GameState
   attr_reader :game_object_map, :player
   
   def setup
-    self.input = { :e => :edit, :esc => :exit, :p => GameStates::Pause }
+    self.input = { :e => :edit, :esc => MenuState, :p => GameStates::Pause }
     
     @bg1 = Color::BLUE
-    @bg2 = Color::CYAN    
+    @bg2 = Color::CYAN
     @from = Color.new(0xFF129CA2)
     @to = Color.new(0xFF1E5D5F)
     @grid = [16,16]
@@ -22,7 +22,7 @@ class Level < GameState
   end
   
   def edit
-    push_game_state(GameStates::Edit.new(:file => @file, :grid => @grid, :except => [Star, Laser, Player, Ball, TinyBall, MediumBall, SmallBall, Pixel], :debug => true))
+    push_game_state(GameStates::Edit.new(:file => @file, :grid => @grid, :except => [Star, Laser, Player, Ball, TinyBall, MediumBall, SmallBall, Pixel, ScoreText], :debug => true))
   end
 
   def draw
@@ -56,8 +56,7 @@ class Level < GameState
     Laser.each_collision(Pixel) do |laser, pixel|
       pixel.hit_by(laser)
       $window.score += pixel.power
-      text = Text.create(pixel.power, :x => pixel.x, :y => pixel.y)
-      after(1000) { text.destroy }
+      ScoreText.create(pixel.power, :x => pixel.x, :y => pixel.y)
       laser.destroy
     end
       
@@ -76,26 +75,43 @@ class Level2 < Level; end
 class Level3 < Level; end
 
 class ScoreText < Text
-  traits :timer, :velocity
+  traits :velocity
   
   def setup
     self.velocity_y = -0.5
-    self.color = Color::BLUE
-    #every(400) { self.alpha -= 1 }
   end
   
   def update
-    self.alpha -= 1
-    destroy if self.alpha == 0
+    self.alpha -= 2
+    destroy   if self.alpha == 0
   end
   
 end
 
-#class Intro < GameState
-#  def setup
-#  end
-#  
-#  def draw
-#    previous_game_state.draw
-#  end
-#end
+class MenuState < GameState
+  def setup
+    SimpleMenu.create(
+      :menu_items => {"Start Game" => :start_game, "HighScores" => HighScoreState, "Quit" => :exit}, 
+      :size => 20,
+      :factor => 4
+    )
+    
+    $window.reset_game
+  end
+
+  def start_game
+    $window.next_level
+  end
+end
+
+class HighScoreState < GameState
+end
+
+class Intro < GameState
+  def setup
+  end
+  
+  def draw
+    previous_game_state.draw
+  end
+end

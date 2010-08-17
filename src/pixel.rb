@@ -89,13 +89,16 @@ class Pop < GameObject
     super
     @owner = options[:owner]    
     @angle_velocity = rand(10)
-    self.attributes = @owner.attributes
+    
+    self.x = @owner.x
+    self.y = @owner.y
     self.image = @owner.image
+    
     self.velocity_y = -5 + rand(2)
     self.velocity_x = (-5 + rand(10)) * 2
     self.acceleration_y = 0.50
     self.mode = :additive
-    self.color = Color::WHITE
+    #self.color = Color::WHITE.dup
     self.alpha = 100
     Sound["pop.wav"].play(0.2)
   end

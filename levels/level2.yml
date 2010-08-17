@@ -80,8 +80,8 @@
     :factor_y: 2.06451612903226
     :color: 4294967295
 - BigPixel: 
-    :x: 120.0
-    :y: 144.3
+    :x: 488.0
+    :y: 126.6
     :angle: 0
     :zorder: 30
     :factor_x: 4
@@ -144,7 +144,7 @@
     :factor_y: 2.0
     :color: 4294967295
 - RightBrick: 
-    :x: 560.0
+    :x: 704.0
     :y: 240.0
     :angle: 0
     :zorder: 100
@@ -256,10 +256,34 @@
     :factor_y: 2.0
     :color: 4294967295
 - BigPixel: 
-    :x: 400.0
-    :y: 112.0
+    :x: 694.0
+    :y: 56.8000000000003
     :angle: 0
     :zorder: 30
-    :factor_x: 1.37142857142857
-    :factor_y: 1.37142857142857
+    :factor_x: 4
+    :factor_y: 4
+    :color: 4294967295
+- Brick: 
+    :x: 560.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.5
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 608.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.5
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 656.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.5
+    :factor_y: 2.0
     :color: 4294967295

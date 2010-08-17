@@ -3,10 +3,10 @@
 #
 
 begin
-  raise LoadError if defined?(Ocra)
   require '../chingu/lib/chingu'
+  raise LoadError if defined?(Ocra)
 rescue LoadError
-  #require 'chingu'
+  require 'chingu'
 end
 
 #$: << File.join(ROOT,"lib")
@@ -31,10 +31,7 @@ class Game < Chingu::Window
     retrofy
     self.factor = 2
     self.input = { :tab => :next_level }
-    
-    @score = 0
-    @lives = 3
-    
+        
     #gamercv = YAML.load_file(File.join(ROOT, "gamercv.yml"))
     #@high_score_list = OnlineHighScoreList.new(:game_id => 3, :login => gamercv["login"], :password => gamercv["password"], :limit => 10)
     #data = {:name => "BETA-TEST", :score => 667, :text => "Testing the high score list." }
@@ -44,13 +41,18 @@ class Game < Chingu::Window
     Sound["pop.wav"]          # <-- lame caching untill chingu gets "cache_media()" or simular
     Sound["player_fire.wav"]  # -""-
     Sound["die.wav"]          # -""-
-
-    @levels = [Level1, Level2, Level3]
-    push_game_state(@levels.shift)
+    
+    push_game_state(MenuState)
   end  
   
+  def reset_game
+    @levels = [Level1, Level2, Level3]   
+    @score = 0
+    @lives = 3
+  end
+  
   def next_level
-    push_game_state($window.levels.shift)
+    switch_game_state($window.levels.shift)
   end
 end
 
