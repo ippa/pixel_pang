@@ -98,7 +98,6 @@ class Pop < GameObject
     self.velocity_x = (-5 + rand(10)) * 2
     self.acceleration_y = 0.50
     self.mode = :additive
-    #self.color = Color::WHITE.dup
     self.alpha = 100
     Sound["pop.wav"].play(0.2)
   end

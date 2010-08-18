@@ -1,0 +1,433 @@
+--- 
+- GrassBlock: 
+    :x: 0.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 80.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 160.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 240.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 320.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 400.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 480.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 560.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 640.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 720.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- Brick: 
+    :x: 176.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :color: 4294967295
+- Brick: 
+    :x: 240.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :color: 4294967295
+- Brick: 
+    :x: 304.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :color: 4294967295
+- GrassBlock: 
+    :x: 0.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 80.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 160.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 240.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 320.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 400.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 480.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 560.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 640.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 720.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- Brick: 
+    :x: 176.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 240.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 304.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 432.0
+    :y: 144.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2
+    :factor_y: 2
+    :color: 4294967295
+- GrassBlock: 
+    :x: 0.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 80.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 160.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 240.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 320.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 400.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 480.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 560.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 640.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 720.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- Brick: 
+    :x: 176.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 240.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 304.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
+- GrassBlock: 
+    :x: 0.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 80.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 160.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 240.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 320.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 400.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 480.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 560.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 640.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 720.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- Brick: 
+    :x: 176.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 240.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 304.0
+    :y: 240.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 432.0
+    :y: 144.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295

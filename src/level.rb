@@ -2,6 +2,12 @@ class Level < GameState
   trait :timer
   attr_reader :game_object_map, :player
   
+  def initialize(options = {})
+    super
+    
+    @player = Player.create(:x => $window.width/2, :y => $window.height - 75)    
+  end
+  
   def setup
     self.input = { :e => :edit, :esc => MenuState, :p => GameStates::Pause }
     
@@ -11,10 +17,15 @@ class Level < GameState
     @to = Color.new(0xFF1E5D5F)
     @grid = [16,16]
     
+    game_objects.select { |game_object| !game_object.is_a? Player }.each { |game_object| game_object.destroy }
     @file = File.join(ROOT, "levels", self.filename + ".yml")
     load_game_objects(:file => @file)
     
-    @player = Player.create(:x => $window.width/2, :y => $window.height - 80)    
+    if Block.size == 0
+      puts "* Loading boiler-plate level!"
+      load_game_objects(:file => File.join(ROOT, "levels", "empty_level.yml"))
+    end
+    
     @game_object_map = GameObjectMap.new(:grid => @grid, :game_objects => Brick.all + Block.all)
     
     game_objects.pause!
@@ -38,6 +49,8 @@ class Level < GameState
     @player.each_collision(Pixel) do |player, pixel|
       player.hit_by(pixel)
       $window.lives -= 1
+      during(500) { @player.mode = (@player.mode == :default) ? :additive : :default }
+      
       game_objects.pause!
       @player.collidable = false
       after(500) { switch_game_state(self.class) }   # Restart level
@@ -62,17 +75,24 @@ class Level < GameState
       
     #game_objects.destroy_if { |game_object| game_object.outside_window? }
     
-    if Pixel.size == 0
+    if Brick.size > 0 && Pixel.size == 0
       $window.next_level
     end
     
-    $window.caption = "PixelPang - #{self.class}! Score: #{$window.score}. FPS: #{$window.fps} - Game objects: #{game_objects.size}"
+    $window.caption = "PixelPang - #{self.class}! Score: #{$window.score}. FPS: #{$window.fps} - Pixels: #{Pixel.size}"
   end
 end
 
 class Level1 < Level; end
 class Level2 < Level; end
 class Level3 < Level; end
+class Level4 < Level; end
+class Level5 < Level; end
+class Level6 < Level; end
+class Level7 < Level; end
+class Level8 < Level; end
+class Level9 < Level; end
+class Level10 < Level; end
 
 class ScoreText < Text
   traits :velocity
@@ -83,7 +103,7 @@ class ScoreText < Text
   
   def update
     self.alpha -= 2
-    destroy   if self.alpha == 0
+    destroy if self.alpha == 0
   end
   
 end

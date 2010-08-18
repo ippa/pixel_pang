@@ -1,6 +1,6 @@
 class Player < GameObject
   traits :velocity, :timer, :collision_detection
-  trait :bounding_box, :scale => 0.60, :debug => DEBUG
+  trait :bounding_box, :scale => 0.60, :debug => false
   
   attr_accessor :score
   
@@ -16,14 +16,14 @@ class Player < GameObject
     @speed = 4
     @cooling_down = false
     
-    @anim = {}
-    @anim[:full] = Animation.new(:file => "walk.bmp", :size => [42, 42], :delay => 40)
+    @anim = {}    
+    @anim[:full] = Animation.new(:file => "walk.bmp", :size => [29, 41], :delay => 40)
     @anim[:walking] = @anim[:full][0..2]
     @image = @anim[:walking].first
     
-    @anim[:fire] = Animation.new(:file => "fire.bmp", :size => [42, 42], :delay => 40)
+    @anim[:fire] = Animation.new(:file => "fire2.bmp", :size => [32, 48], :delay => 40)
     
-    self.zorder = 20
+    self.zorder = 30
     self.acceleration_y = 0.50
     cache_bounding_box
   end
@@ -64,24 +64,24 @@ class Player < GameObject
   end
   
   def hit_by(object)
-    Sound["die.wav"].play(0.1)
+    Sound["die2.wav"].play(0.2)
   end
 end
 
 class Laser < GameObject
   traits :collision_detection, :timer
-  trait :bounding_box, :scale => 0.80, :debug => DEBUG
+  trait :bounding_box, :scale => 0.50, :debug => false
   
   def setup
     Sound["player_fire.wav"].play(0.1)
     @factor_seed = 0.1
     @image = Image["laser.png"]
-    self.zorder = 20
+    self.zorder = 25
     self.rotation_center(:top_center)
 
     every(50) { self.mode = (self.mode == :additive) ? :default : :additive }
     every(100) { Star.create(:x => @x, :y => @y) }
-    cache_bounding_box
+    #cache_bounding_box
   end
     
   def update

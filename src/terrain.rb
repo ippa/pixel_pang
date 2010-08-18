@@ -10,3 +10,5 @@ end
 
 class GrassBlock < Block; end
 
+class GrassTest < Block; end
+

@@ -3,8 +3,8 @@
 #
 
 begin
-  require '../chingu/lib/chingu'
   raise LoadError if defined?(Ocra)
+  require '../chingu/lib/chingu'
 rescue LoadError
   require 'chingu'
 end
@@ -40,13 +40,13 @@ class Game < Chingu::Window
     
     Sound["pop.wav"]          # <-- lame caching untill chingu gets "cache_media()" or simular
     Sound["player_fire.wav"]  # -""-
-    Sound["die.wav"]          # -""-
+    Sound["die2.wav"]          # -""-
     
     push_game_state(MenuState)
   end  
   
   def reset_game
-    @levels = [Level1, Level2, Level3]   
+    @levels = [Level1, Level2, Level3, Level4, Level5, Level6, Level7, Level8, Level9, Level10]
     @score = 0
     @lives = 3
   end

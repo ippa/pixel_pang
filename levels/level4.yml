@@ -1,0 +1,185 @@
+--- 
+- GrassBlock: 
+    :x: 240.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 320.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 400.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 160.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 80.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 0.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 480.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 560.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 640.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- GrassBlock: 
+    :x: 720.0
+    :y: 544.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.9047619047619
+    :factor_y: 2.06451612903226
+    :color: 4294967295
+- Brick: 
+    :x: 336.0
+    :y: 432.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.5
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 384.0
+    :y: 432.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.5
+    :factor_y: 2.0
+    :color: 4294967295
+- TinyPixel: 
+    :x: 576.0
+    :y: 480.0
+    :angle: 0
+    :zorder: 32
+    :factor_x: 1.77777777777778
+    :factor_y: 1.77777777777778
+    :color: 4294967295
+- Brick: 
+    :x: 432.0
+    :y: 432.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.5
+    :factor_y: 2.0
+    :color: 4294967295
+- TinyPixel: 
+    :x: 672.0
+    :y: 464.0
+    :angle: 0
+    :zorder: 32
+    :factor_x: 1.77777777777778
+    :factor_y: 1.77777777777778
+    :color: 4294967295
+- RightBrick: 
+    :x: 480.0
+    :y: 432.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 288.0
+    :y: 432.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.5
+    :factor_y: 2.0
+    :color: 4294967295
+- LeftBrick: 
+    :x: 272.0
+    :y: 432.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
+- BigPixel: 
+    :x: 256.0
+    :y: 176.0
+    :angle: 0
+    :zorder: 30
+    :factor_x: 1.37142857142857
+    :factor_y: 1.37142857142857
+    :color: 4294967295
+- BigPixel: 
+    :x: 480.0
+    :y: 160.0
+    :angle: 0
+    :zorder: 30
+    :factor_x: 1.37142857142857
+    :factor_y: 1.37142857142857
+    :color: 4294967295
+- RightBrick: 
+    :x: 112.0
+    :y: 272.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
+- Brick: 
+    :x: 64.0
+    :y: 272.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 1.5
+    :factor_y: 2.0
+    :color: 4294967295
+- LeftBrick: 
+    :x: 48.0
+    :y: 272.0
+    :angle: 0
+    :zorder: 100
+    :factor_x: 2.0
+    :factor_y: 2.0
+    :color: 4294967295
